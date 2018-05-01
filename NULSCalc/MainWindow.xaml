@@ -9,15 +9,7 @@
         Loaded="Window_Loaded" >
     <DockPanel>
         <DockPanel DockPanel.Dock="Top" Height="42" Background="#17202E" Name="DockHead" MouseLeftButtonDown="DockHead_MouseLeftButtonDown" Margin="5,0">
-            <Image Margin="0,8,8,8" Source="Sources/NULS.ico" DockPanel.Dock="Left" RenderTransformOrigin="0.5,0.5">
-                <Image.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="8.027"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Image.RenderTransform>
+            <Image Margin="0,8,8,8" Source="Sources/NULS.ico" DockPanel.Dock="Left">
             </Image>
             <Label Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="670">
                 NULS共识收益计算器</Label>
@@ -101,8 +93,8 @@
                         <TextBox Text="2000" LostFocus="TextBox_Entrust_LostFocus" GotFocus="TextBox_GotFocus" Name="TextBox_Entrust" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="140" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
                         <Label Foreground="Gray" Content="范围：2000（含）以上" Margin="10,0,0,0"/>
                     </StackPanel>
-                    <Label Name="Label_ErrorMessage" Foreground="Red" HorizontalContentAlignment="Center" Margin="0,5"></Label>
-                    <Label Name="Label_CalcIncome" MouseLeftButtonDown="Label_CalcIncome_MouseLeftButtonDown" BorderBrush="#658EC7" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand" Width="100" Height="32" Margin="0" ForceCursor="True" Background="#222D3F" Foreground="White">
+                    <Label Name="Label_ErrorMessage" Visibility="Collapsed" Foreground="Red" HorizontalContentAlignment="Center" Margin="0,5,0,0"></Label>
+                    <Label Name="Label_CalcIncome" MouseLeftButtonDown="Label_CalcIncome_MouseLeftButtonDown" BorderBrush="#658EC7" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand" Width="100" Height="32" Margin="0,10,0,0" ForceCursor="True" Background="#222D3F" Foreground="White">
                         计算收益
                     </Label>
                 </StackPanel>
