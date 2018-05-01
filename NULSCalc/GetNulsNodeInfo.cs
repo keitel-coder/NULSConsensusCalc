@@ -40,7 +40,7 @@ namespace NULSCalc
         {
             try
             {
-                string json = Uitls.HttpUitls.Get("http://data.nuls.io/nuls/block/list?pageNumber=1&pageSize=1&t=1525128002869&t=" + DateTime.Now.GetTimeStamp());
+                string json = Uitls.HttpUitls.Get("http://data.nuls.io/nuls/block/list?pageNumber=1&pageSize=1&t=" + DateTime.Now.GetTimeStamp());
                 if (json == null) return null;
                 System.Runtime.Serialization.Json.DataContractJsonSerializer serializer = new System.Runtime.Serialization.Json.DataContractJsonSerializer(typeof(NulsResponse<BlockList>));
                 using (MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
