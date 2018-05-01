@@ -3,10 +3,181 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:NULSCalc"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        xmlns:local="clr-namespace:NULSCalc" WindowStyle="None" ResizeMode="NoResize"
+        mc:Ignorable="d" Icon="/Sources/NULS.ico" Background="#0C1323" WindowStartupLocation="CenterScreen"
+        Title="NULS共识收益计算器" Height="500" Width="800"
+        Loaded="Window_Loaded" >
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top" Height="42" Background="#17202E" Name="DockHead" MouseLeftButtonDown="DockHead_MouseLeftButtonDown" Margin="5,0">
+            <Image Margin="0,8,8,8" Source="Sources/NULS.ico" DockPanel.Dock="Left" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="8.027"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Label Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="670">
+                NULS共识收益计算器</Label>
+            <WrapPanel DockPanel.Dock="Right" HorizontalAlignment="Right">
+                <Label Cursor="Hand" Name="LabelMini" MouseLeftButtonDown="LabelMini_MouseLeftButtonDown">
+                    <Image Source="Sources/sub.png"></Image>
+                </Label>
+                <Label Cursor="Hand" Name="LabelClose" MouseLeftButtonDown="LabelClose_MouseLeftButtonDown">
+                    <Image Source="Sources/close.png"></Image>
+                </Label>
+            </WrapPanel>
+        </DockPanel>
+        <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Center" Orientation="Vertical" Margin="0,5,0,0">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <StackPanel HorizontalAlignment="Left" Margin="0,0,10,0">
+                    <GroupBox Header="共识信息" Foreground="White">
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,0">
+                                <Label Foreground="White" Content="总委托" Margin="0,0,10,0" Width="96" Height="25"/>
+                                <Label Name="Label_TotalDeposit" Foreground="Gray"/>
+                            </StackPanel>
+                            <Grid Background="#eee">
+                                <Rectangle Fill="#333F51" VerticalAlignment="Top" Height="0.25"/>
+                            </Grid>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,0">
+                                <Label Foreground="White" Content="代币发行量" Margin="0,0,10,0" Width="96" Height="25"/>
+                                <Label Foreground="Gray" Content="100000000"/>
+                                <Label Foreground="Gray" Content="NULS"/>
+                            </StackPanel>
+                            <Grid Background="#eee">
+                                <Rectangle Fill="#333F51" VerticalAlignment="Top" Height="0.25"/>
+                            </Grid>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,0">
+                                <Label Foreground="White" Content="当前节点数量" Margin="0,0,10,0" Width="96" Height="25"/>
+                                <Label Name="Label_AgentCount" Foreground="Gray"/>
+                            </StackPanel>
+                            <Grid Background="#eee">
+                                <Rectangle Fill="#333F51" VerticalAlignment="Top" Height="0.25"/>
+                            </Grid>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,0">
+                                <Label Foreground="White" Content="当前参与人数" Margin="0,0,10,0" Width="96" Height="25"/>
+                                <Label Name="Label_ConsensusAccountNumber" Foreground="Gray"/>
+                            </StackPanel>
+                            <Grid Background="#eee">
+                                <Rectangle Fill="#333F51" VerticalAlignment="Top" Height="0.25"/>
+                            </Grid>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,0">
+                                <Label Foreground="White" Content="24小时共识奖励" Margin="0,0,10,0" Width="96"/>
+                                <Label Name="Label_RewardOfDay" Foreground="Gray"/>
+                                <Label Foreground="Gray" Content="NULS"/>
+                            </StackPanel>
+                            <Grid Background="#eee">
+                                <Rectangle Fill="#333F51" VerticalAlignment="Top" Height="0.5"/>
+                            </Grid>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,10,0,0">
+                        <Label Foreground="White" Content="共识类型" Margin="0,0,10,0" Width="96" Height="25"/>
+                        <RadioButton GroupName="RadioType" Name="RadionType_Agent" Checked="RadionType_Agent_Checked" IsChecked="True" Foreground="White"  Height="23" Content="代理共识"/>
+                        <RadioButton GroupName="RadioType" Name="RadionType_Entrust" Checked="RadionType_Entrust_Checked" Foreground="White"  Height="23" Content="委托共识" Margin="10,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Name="StackPanelAgentdeposit" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,0">
+                        <Label Foreground="White" Content="代理节点押金" Margin="0,0,10,0" Height="25" Width="96"/>
+                        <TextBox LostFocus="TextBox_NodeDeposit_LostFocus" GotFocus="TextBox_GotFocus" Name="TextBox_NodeDeposit" Text="20000" MaxLength="10" Height="23" Background="#17202E"  Width="140" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <Label Foreground="Gray" Content="范围：2万（含）以上NULS" Margin="10,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,0">
+                        <Label Foreground="White" Content="代理人佣金比例" Margin="0,0,10,0" Height="25" Width="96"/>
+                        <TextBox Text="0" LostFocus="TextBox_AgentCommission_LostFocus" GotFocus="TextBox_GotFocus" Name="TextBox_AgentCommission" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="140" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <Label Foreground="Gray" Content="范围：0-20%" Margin="10,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Name="StackPanel_Entrusted" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,0">
+                        <Label Foreground="White" Content="受委托金额" Margin="0,0,10,0" Height="25" Width="96"/>
+                        <TextBox Text="200000" LostFocus="TextBox_Entrusted_LostFocus" GotFocus="TextBox_GotFocus" Name="TextBox_Entrusted" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="140" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <Label Foreground="Gray" Content="范围：20-50万NULS" Margin="10,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Name="StackPanel_Entrust" Orientation="Horizontal" Visibility="Collapsed" HorizontalAlignment="Left" Margin="0,10,0,0">
+                        <Label Foreground="White" Content="委托金额" Margin="0,0,10,0" Height="25" Width="96"/>
+                        <TextBox Text="2000" LostFocus="TextBox_Entrust_LostFocus" GotFocus="TextBox_GotFocus" Name="TextBox_Entrust" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="140" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <Label Foreground="Gray" Content="范围：2000（含）以上" Margin="10,0,0,0"/>
+                    </StackPanel>
+                    <Label Name="Label_ErrorMessage" Foreground="Red" HorizontalContentAlignment="Center" Margin="0,5"></Label>
+                    <Label Name="Label_CalcIncome" MouseLeftButtonDown="Label_CalcIncome_MouseLeftButtonDown" BorderBrush="#658EC7" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand" Width="100" Height="32" Margin="0" ForceCursor="True" Background="#222D3F" Foreground="White">
+                        计算收益
+                    </Label>
+                </StackPanel>
+            </StackPanel>
+            <GroupBox Header="总收益" Foreground="White" Padding="0,0,0.2,0">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Label Foreground="White" Content="收益（天）" Margin="0,0,0,0" Height="25"/>
+                        <TextBox Name="TextBox_AgentIncomeOfDay" IsReadOnly="True"  MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <Label Foreground="Gray" Content="NULS"/>
+                        <Label Foreground="White" Content="收益率（日化）" Margin="0,0,0,0" Height="25" BorderThickness="10,0,0,0"/>
+                        <TextBox Name="TextBox_AgentIncomeRateOfDay" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <Label Foreground="Gray" Content="%"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Label Foreground="White" Content="收益（月）" Margin="0,0,0,0" Height="25"/>
+                        <TextBox Name="TextBox_AgentIncomeOfMonth" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <Label Foreground="Gray" Content="NULS"/>
+                        <Label Foreground="White" Content="收益率（月化）" Margin="0,0,0,0" Height="25" BorderThickness="10,0,0,0"/>
+                        <TextBox Name="TextBox_AgentIncomeRateOfMonth" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <Label Foreground="Gray" Content="%"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Label Foreground="White" Content="收益（年）" Margin="0,0,0,0" Height="25"/>
+                        <TextBox Name="TextBox_AgentIncomeOfYear" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <Label Foreground="Gray" Content="NULS"/>
+                        <Label Foreground="White" Content="收益率（年化）" Margin="0,0,0,0" Height="25" BorderThickness="10,0,0,0"/>
+                        <TextBox Name="TextBox_AgentIncomeRateOfYear" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <Label Foreground="Gray" Content="%"/>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Name="GroupBoxCommision" Header="其中佣金收益" Foreground="White" Padding="0" Margin="0,10,0,0">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Label Foreground="White" Content="收益（天）" Margin="0,0,0,0" Height="25"/>
+                        <TextBox Name="TextBox_CommisionIncomeOfDay" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <Label Foreground="Gray" Content="NULS"/>
+                        <Label Foreground="White" Content="收益率（日化）" Margin="0,0,0,0" Height="25" BorderThickness="10,0,0,0"/>
+                        <TextBox Name="TextBox_CommisionIncomeRateOfDay" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <Label Foreground="Gray" Content="%"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Label Foreground="White" Content="收益（月）" Margin="0,0,0,0" Height="25"/>
+                        <TextBox Name="TextBox_CommisionIncomeOfMonth" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <Label Foreground="Gray" Content="NULS"/>
+                        <Label Foreground="White" Content="收益率（月化）" Margin="0,0,0,0" Height="25" BorderThickness="10,0,0,0"/>
+                        <TextBox Name="TextBox_CommisionIncomeRateOfMonth" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <Label Foreground="Gray" Content="%"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Label Foreground="White" Content="收益（年）" Margin="0,0,0,0" Height="25"/>
+                        <TextBox Name="TextBox_CommisionIncomeOfYear" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <Label Foreground="Gray" Content="NULS"/>
+                        <Label Foreground="White" Content="收益率（年化）" Margin="0,0,0,0" Height="25" BorderThickness="10,0,0,0"/>
+                        <TextBox Name="TextBox_CommisionIncomeRateOfYear" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <Label Foreground="Gray" Content="%"/>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+        <DockPanel DockPanel.Dock="Bottom" Height="24" VerticalAlignment="Bottom" Margin="2,0,0,2">
+            <WrapPanel DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Label Foreground="White" BorderBrush="#658EC7" Width="62">区块高度：</Label>
+                <Label Foreground="White" Cursor="Hand" BorderBrush="#658EC7" Name="LabelBlockHeight" MouseLeftButtonDown="LabelBlockHeight_MouseLeftButtonDown"></Label>
+                <Label Foreground="White" BorderBrush="#658EC7" Width="62">出块时间：</Label>
+                <Label Foreground="White" Cursor="Hand" BorderBrush="#658EC7" Name="LabelBlockTime" MouseLeftButtonDown="LabelBlockHeight_MouseLeftButtonDown"></Label>
+            </WrapPanel>
+            <WrapPanel DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" >
+                <Label Foreground="White" Cursor="Hand" BorderBrush="#658EC7" Name="LabelWebSite" MouseLeftButtonDown="LabelWebSite_MouseLeftButtonDown">NULS官网</Label>
+                <Label Foreground="White" Cursor="Hand" BorderBrush="#658EC7" Name="LabelBinance" MouseLeftButtonDown="LabelBinance_MouseLeftButtonDown">币安</Label>
+                <Label Foreground="White" Cursor="Hand" BorderBrush="#658EC7" Name="LabelChineseBBS" MouseLeftButtonDown="LabelChineseBBS_MouseLeftButtonDown">中文交流论坛</Label>
+                <Label Foreground="White" Cursor="Hand" BorderBrush="#658EC7" Name="LabelTelegram" MouseLeftButtonDown="LabelTelegram_MouseLeftButtonDown">电报群</Label>
+                <Label Foreground="White" Cursor="Hand" BorderBrush="#658EC7" Name="LabelAbout" MouseLeftButtonDown="LabelAbout_MouseLeftButtonDown">关于</Label>
+            </WrapPanel>
+        </DockPanel>
+    </DockPanel>
 </Window>
