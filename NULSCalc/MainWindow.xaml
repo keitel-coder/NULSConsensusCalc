@@ -69,22 +69,22 @@
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,10,0,0">
-                        <Label Foreground="White" Content="共识类型" Margin="0,0,10,0" Width="96" Height="25"/>
-                        <RadioButton GroupName="RadioType" Name="RadionType_Agent" Checked="RadionType_Agent_Checked" IsChecked="True" Foreground="White"  Height="23" Content="代理共识"/>
-                        <RadioButton GroupName="RadioType" Name="RadionType_Entrust" Checked="RadionType_Entrust_Checked" Foreground="White"  Height="23" Content="委托共识" Margin="10,0,0,0"/>
+                        <Label Foreground="White" Content="共识类型" Margin="0,0,10,0" Width="105" Height="25"/>
+                        <RadioButton VerticalContentAlignment="Center" GroupName="RadioType" Name="RadionType_Agent" Checked="RadionType_Agent_Checked" IsChecked="True" Foreground="White"  Height="23" Content="代理共识" Margin="0"/>
+                        <RadioButton VerticalContentAlignment="Center" GroupName="RadioType" Name="RadionType_Entrust" Checked="RadionType_Entrust_Checked" Foreground="White"  Height="23" Content="委托共识" Margin="10,0,0,0"/>
                     </StackPanel>
                     <StackPanel Name="StackPanelAgentdeposit" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,0">
-                        <Label Foreground="White" Content="代理节点押金" Margin="0,0,10,0" Height="25" Width="96"/>
-                        <TextBox LostFocus="TextBox_NodeDeposit_LostFocus" GotFocus="TextBox_GotFocus" Name="TextBox_NodeDeposit" Text="20000" MaxLength="10" Height="23" Background="#17202E"  Width="140" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <Label Foreground="White" Content="代理节点押金" Margin="0,0,10,0" Height="25" Width="105"/>
+                        <TextBox LostFocus="TextBox_NodeDeposit_LostFocus" GotFocus="TextBox_GotFocus" BorderBrush="#658EC7" Name="TextBox_NodeDeposit" Text="20000" MaxLength="10" Height="23" Background="#17202E"  Width="140" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
                         <Label Foreground="Gray" Content="范围：2万（含）以上NULS" Margin="10,0,0,0"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,0">
-                        <Label Foreground="White" Content="代理人佣金比例" Margin="0,0,10,0" Height="25" Width="96"/>
+                        <Label Foreground="White" Content="代理人佣金比例" Margin="0,0,10,0" Height="25" Width="105"/>
                         <TextBox Text="10" LostFocus="TextBox_AgentCommission_LostFocus" GotFocus="TextBox_GotFocus" Name="TextBox_AgentCommission" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="140" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
                         <Label Foreground="Gray" Content="范围：0-20%" Margin="10,0,0,0"/>
                     </StackPanel>
                     <StackPanel Name="StackPanel_Entrusted" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,0">
-                        <Label Foreground="White" Content="受委托金额" Margin="0,0,10,0" Height="25" Width="96"/>
+                        <Label Foreground="White" Content="代理人受委托押金" Margin="0,0,10,0" Height="25" Width="105"/>
                         <TextBox Text="200000" LostFocus="TextBox_Entrusted_LostFocus" GotFocus="TextBox_GotFocus" Name="TextBox_Entrusted" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="140" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
                         <Label Foreground="Gray" Content="范围：20-50万NULS" Margin="10,0,0,0"/>
                     </StackPanel>
@@ -103,26 +103,26 @@
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                         <Label Foreground="White" Content="收益（天）" Margin="0,0,0,0" Height="25"/>
-                        <TextBox Name="TextBox_AgentIncomeOfDay" IsReadOnly="True"  MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <TextBox Name="TextBox_AgentIncomeOfDay" IsReadOnly="True"  MaxLength="10" Height="23" Background="#17202E" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
                         <Label Foreground="Gray" Content="NULS"/>
                         <Label Foreground="White" Content="收益率（日化）" Margin="0,0,0,0" Height="25" BorderThickness="10,0,0,0"/>
-                        <TextBox Name="TextBox_AgentIncomeRateOfDay" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <TextBox Name="TextBox_AgentIncomeRateOfDay" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
                         <Label Foreground="Gray" Content="%"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                         <Label Foreground="White" Content="收益（月）" Margin="0,0,0,0" Height="25"/>
-                        <TextBox Name="TextBox_AgentIncomeOfMonth" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <TextBox Name="TextBox_AgentIncomeOfMonth" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
                         <Label Foreground="Gray" Content="NULS"/>
                         <Label Foreground="White" Content="收益率（月化）" Margin="0,0,0,0" Height="25" BorderThickness="10,0,0,0"/>
-                        <TextBox Name="TextBox_AgentIncomeRateOfMonth" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <TextBox Name="TextBox_AgentIncomeRateOfMonth" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
                         <Label Foreground="Gray" Content="%"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                         <Label Foreground="White" Content="收益（年）" Margin="0,0,0,0" Height="25"/>
-                        <TextBox Name="TextBox_AgentIncomeOfYear" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <TextBox Name="TextBox_AgentIncomeOfYear" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
                         <Label Foreground="Gray" Content="NULS"/>
                         <Label Foreground="White" Content="收益率（年化）" Margin="0,0,0,0" Height="25" BorderThickness="10,0,0,0"/>
-                        <TextBox Name="TextBox_AgentIncomeRateOfYear" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <TextBox Name="TextBox_AgentIncomeRateOfYear" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
                         <Label Foreground="Gray" Content="%"/>
                     </StackPanel>
                 </StackPanel>
@@ -131,26 +131,26 @@
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                         <Label Foreground="White" Content="收益（天）" Margin="0,0,0,0" Height="25"/>
-                        <TextBox Name="TextBox_CommisionIncomeOfDay" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <TextBox Name="TextBox_CommisionIncomeOfDay" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
                         <Label Foreground="Gray" Content="NULS"/>
                         <Label Foreground="White" Content="收益率（日化）" Margin="0,0,0,0" Height="25" BorderThickness="10,0,0,0"/>
-                        <TextBox Name="TextBox_CommisionIncomeRateOfDay" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <TextBox Name="TextBox_CommisionIncomeRateOfDay" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
                         <Label Foreground="Gray" Content="%"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                         <Label Foreground="White" Content="收益（月）" Margin="0,0,0,0" Height="25"/>
-                        <TextBox Name="TextBox_CommisionIncomeOfMonth" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <TextBox Name="TextBox_CommisionIncomeOfMonth" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
                         <Label Foreground="Gray" Content="NULS"/>
                         <Label Foreground="White" Content="收益率（月化）" Margin="0,0,0,0" Height="25" BorderThickness="10,0,0,0"/>
-                        <TextBox Name="TextBox_CommisionIncomeRateOfMonth" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <TextBox Name="TextBox_CommisionIncomeRateOfMonth" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
                         <Label Foreground="Gray" Content="%"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                         <Label Foreground="White" Content="收益（年）" Margin="0,0,0,0" Height="25"/>
-                        <TextBox Name="TextBox_CommisionIncomeOfYear" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <TextBox Name="TextBox_CommisionIncomeOfYear" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
                         <Label Foreground="Gray" Content="NULS"/>
                         <Label Foreground="White" Content="收益率（年化）" Margin="0,0,0,0" Height="25" BorderThickness="10,0,0,0"/>
-                        <TextBox Name="TextBox_CommisionIncomeRateOfYear" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+                        <TextBox Name="TextBox_CommisionIncomeRateOfYear" IsReadOnly="True" MaxLength="10" Height="23" Background="#17202E" Width="160" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
                         <Label Foreground="Gray" Content="%"/>
                     </StackPanel>
                 </StackPanel>

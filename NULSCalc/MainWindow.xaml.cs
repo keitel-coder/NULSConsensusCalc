@@ -132,6 +132,8 @@ namespace NULSCalc
                 GroupBoxCommision.Visibility = Visibility.Visible;
                 StackPanelAgentdeposit.Visibility = Visibility.Visible;
                 this.Height = this.Height + GroupBoxCommision.ActualHeight;
+                this.StackPanel_Entrust.Visibility = Visibility.Collapsed;
+                this.StackPanel_Entrusted.Visibility = Visibility.Visible;
             }
             ClearIncomeTextBox();
         }
