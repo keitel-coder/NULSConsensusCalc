@@ -164,7 +164,7 @@
                 <Label ToolTip="最新出块时间" Foreground="White" Cursor="Hand" BorderBrush="#658EC7" Name="LabelBlockTime" MouseLeftButtonDown="LabelBlockHeight_MouseLeftButtonDown"></Label>
             </WrapPanel>
             <WrapPanel DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" >
-                <Label ToolTip="开发者信息" Foreground="White" Cursor="Hand" BorderBrush="#658EC7" Name="LabelWebSite" MouseLeftButtonDown="LabelWebSite_MouseLeftButtonDown">NULS官网</Label>
+                <Label ToolTip="NULS项目官方网站" Foreground="White" Cursor="Hand" BorderBrush="#658EC7" Name="LabelWebSite" MouseLeftButtonDown="LabelWebSite_MouseLeftButtonDown">NULS官网</Label>
                 <Label ToolTip="币安购买NULS链接" Foreground="White" Cursor="Hand" BorderBrush="#658EC7" Name="LabelBinance" MouseLeftButtonDown="LabelBinance_MouseLeftButtonDown">币安</Label>
                 <Label Foreground="White" Cursor="Hand" BorderBrush="#658EC7" Name="LabelChineseBBS" MouseLeftButtonDown="LabelChineseBBS_MouseLeftButtonDown">中文交流论坛</Label>
                 <Label Foreground="White" Cursor="Hand" BorderBrush="#658EC7" Name="LabelTelegram" MouseLeftButtonDown="LabelTelegram_MouseLeftButtonDown">电报群</Label>
