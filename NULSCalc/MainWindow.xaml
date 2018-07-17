@@ -81,12 +81,12 @@
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,0">
                         <Label Foreground="White" Content="代理人佣金比例" Margin="0,0,10,0" Height="25" Width="105"/>
                         <TextBox Text="10" LostFocus="TextBox_AgentCommission_LostFocus" GotFocus="TextBox_GotFocus" Name="TextBox_AgentCommission" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="140" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
-                        <Label Foreground="Gray" Content="范围：0-20%" Margin="10,0,0,0"/>
+                        <Label Foreground="Gray" Content="范围：0-80%" Margin="10,0,0,0"/>
                     </StackPanel>
                     <StackPanel Name="StackPanel_Entrusted" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,0">
                         <Label Foreground="White" Content="代理人受委托押金" Margin="0,0,10,0" Height="25" Width="105"/>
                         <TextBox Text="200000" LostFocus="TextBox_Entrusted_LostFocus" GotFocus="TextBox_GotFocus" Name="TextBox_Entrusted" MaxLength="10" Height="23" Background="#17202E" BorderBrush="#658EC7" Width="140" Foreground="White" TextWrapping="NoWrap" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
-                        <Label Foreground="Gray" Content="范围：20-50万NULS" Margin="10,0,0,0"/>
+                        <Label Foreground="Gray" Content="范围：0-50万NULS" Margin="10,0,0,0"/>
                     </StackPanel>
                     <StackPanel Name="StackPanel_Entrust" Orientation="Horizontal" Visibility="Collapsed" HorizontalAlignment="Left" Margin="0,10,0,0">
                         <Label Foreground="White" Content="委托金额" Margin="0,0,10,0" Height="25" Width="105"/>

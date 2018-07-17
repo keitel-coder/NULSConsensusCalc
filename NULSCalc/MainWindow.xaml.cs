@@ -1,19 +1,8 @@
-﻿using NULSCalc.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Interop;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace NULSCalc
 {
@@ -30,7 +19,7 @@ namespace NULSCalc
         /// <summary>
         /// 代理人受托押金下限
         /// </summary>
-        private const int EntrustedDown = 200000;
+        private const int EntrustedDown = 0;
 
         /// <summary>
         /// 代理人受托押金上限
@@ -580,12 +569,12 @@ namespace NULSCalc
             //委托金额
             if (entrusted < EntrustedDown)
             {
-                ErrorMessage = "代理人受托押金下限为20万";
+                ErrorMessage = "代理人受托押金下限为" + EntrustedDown;
                 TextBox_AgentCommission.BorderBrush = WarnBrush;
             }
             else if (entrusted > EntrustedUp)
             {
-                ErrorMessage = "代理人受托押金上限为50万";
+                ErrorMessage = "代理人受托押金上限为" + EntrustedUp;
                 TextBox_AgentCommission.BorderBrush = WarnBrush;
             }
             else
@@ -607,7 +596,7 @@ namespace NULSCalc
             //委托金额
             if (entrust < EntrustDown)
             {
-                ErrorMessage = "委托人押金下限为2000，快去买NULS吧";
+                ErrorMessage = $"委托人押金下限为{EntrustDown}，快去买NULS吧";
                 TextBox_Entrust.BorderBrush = WarnBrush;
             }
             else
