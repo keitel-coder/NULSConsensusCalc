@@ -21,6 +21,6 @@ namespace NULSCalc.Model
         /// 出块时间
         /// </summary>
         [DataMember]
-        public long time { get; set; }
+        public long createTime { get; set; }
     }
 }

@@ -203,7 +203,7 @@ namespace NULSCalc
             }));
             this.LabelBlockTime.Dispatcher.Invoke(new Action(delegate
             {
-                this.LabelBlockTime.Content = Uitls.DateTimeUitls.GetDateTime(blockInfo.list[0].time, true).ToString("yyyy-MM-dd HH:mm:ss");
+                this.LabelBlockTime.Content = Uitls.DateTimeUitls.GetDateTime(blockInfo.list[0].createTime, true).ToString("yyyy-MM-dd HH:mm:ss");
             }));
             return true;
         }
